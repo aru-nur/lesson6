@@ -30,5 +30,30 @@ public class MenuActivity1 extends AppCompatActivity implements View.OnClickList
             Intent main = new Intent(this, MainActivity.class);
             startActivity(main);
         }
+    } @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu, menu);
+
+        return true;
     }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_settings:
+                Toast.makeText(this, "Settings menu clicked", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.menu_refresh:
+                Toast.makeText(this, "Refresh menu clicked", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.menu_delete:
+                Toast.makeText(this, "Delete menu clicked", Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        return true;
+    }
+
 }
